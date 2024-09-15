@@ -76,7 +76,7 @@ async function getUserAlert(alias: string, user: User, pubkey: web3.PublicKey): 
     }
     
     console.log('intialized all users')
-    cron.schedule('* * * * *', async() => {
+    cron.schedule('*/15 * * * *', async() => {
         let msg = ''
         for(let i = 0; i < pubkeys.length; i++) {
             let m = await getUserAlert(aliases[i], keeperUsers[i], pubkeys[i])
